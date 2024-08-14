@@ -1,10 +1,7 @@
-<script setup lang="ts">
-import Header from "./components/header.vue";
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="main-container">
-    <Header />
     <router-view />
   </div>
 </template>

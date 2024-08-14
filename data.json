@@ -1,0 +1,342 @@
+{
+  "schedule": [
+    {
+      "id": "1",
+      "date": {
+        "start": "2024-08-01T18:50:15.000Z",
+        "end": "19:50"
+      },
+      "location": "Online",
+      "title": "Meeting with Team A",
+      "invites": [
+        "alice.smith@example.com",
+        "bob.jones@example.com",
+        "carol.taylor@example.com"
+      ],
+      "cancelled": false
+    },
+    {
+      "id": "2",
+      "date": {
+        "start": "2024-08-02T09:00:00.000Z",
+        "end": "10:00"
+      },
+      "location": "Rua Teste, 123",
+      "title": "Project Kickoff",
+      "invites": [
+        "dave.lee@example.com",
+        "eva.williams@example.com",
+        "frank.brown@example.com"
+      ],
+      "cancelled": false
+    },
+    {
+      "id": "3",
+      "date": {
+        "start": "2024-08-03T14:30:00.000Z",
+        "end": "15:30"
+      },
+      "location": "Online",
+      "title": "Design Review",
+      "invites": [
+        "george.clark@example.com",
+        "hannah.martin@example.com",
+        "ian.davis@example.com"
+      ],
+      "cancelled": true
+    },
+    {
+      "id": "4",
+      "date": {
+        "start": "2024-08-04T11:00:00.000Z",
+        "end": "12:00"
+      },
+      "location": "Office, Room 301",
+      "title": "Strategy Meeting",
+      "invites": [
+        "julia.moore@example.com",
+        "kyle.jackson@example.com",
+        "lisa.miller@example.com"
+      ],
+      "cancelled": false
+    },
+    {
+      "id": "5",
+      "date": {
+        "start": "2024-07-10T10:00:00.000Z",
+        "end": "11:00"
+      },
+      "location": "Conference Room A",
+      "title": "Budget Planning",
+      "invites": [
+        "michael.wilson@example.com",
+        "nancy.hernandez@example.com",
+        "oscar.hill@example.com"
+      ],
+      "cancelled": true
+    },
+    {
+      "id": "6",
+      "date": {
+        "start": "2024-07-15T15:00:00.000Z",
+        "end": "16:30"
+      },
+      "location": "Online",
+      "title": "Marketing Strategy",
+      "invites": [
+        "patricia.clarkson@example.com",
+        "quincy.lopez@example.com",
+        "rachel.walker@example.com"
+      ],
+      "cancelled": false
+    },
+    {
+      "id": "7",
+      "date": {
+        "start": "2024-07-20T08:00:00.000Z",
+        "end": "09:00"
+      },
+      "location": "Office, Room 105",
+      "title": "Team Building Workshop",
+      "invites": [
+        "samuel.thomas@example.com",
+        "tina.anderson@example.com",
+        "uma.lee@example.com"
+      ],
+      "cancelled": true
+    },
+    {
+      "id": "8",
+      "date": {
+        "start": "2024-07-25T13:00:00.000Z",
+        "end": "14:00"
+      },
+      "location": "Online",
+      "title": "Quarterly Review",
+      "invites": [
+        "victor.young@example.com",
+        "wendy.ross@example.com",
+        "xander.green@example.com"
+      ],
+      "cancelled": false
+    },
+    {
+      "id": "13",
+      "date": {
+        "start": "2024-08-02T22:30:00.000Z",
+        "end": "23:30"
+      },
+      "location": "Online",
+      "title": "Test",
+      "invites": [
+        "george.clark@example.com",
+        "hannah.martin@example.com",
+        "ian.davis@example.com"
+      ],
+      "cancelled": false
+    },
+    {
+      "id": "5d0a",
+      "title": "FINALMENTE GUYSSS",
+      "date": {
+        "start": "2024-08-22T00:39:00.000Z",
+        "end": "22:39"
+      },
+      "location": "Pernambuco, Recife, Brasil",
+      "invites": [
+        "wendeson",
+        "wendeson.gomes@live.com"
+      ],
+      "cancelled": true
+    },
+    {
+      "id": "d1f2",
+      "title": "Testando ",
+      "date": {
+        "start": "2024-08-11T01:37:00.000Z",
+        "end": "23:37"
+      },
+      "location": "Pernambuco, Recife, Brasil",
+      "invites": [
+        "wendeson.gomes"
+      ],
+      "cancelled": true
+    },
+    {
+      "id": "cc5c",
+      "title": "Testando",
+      "date": {
+        "start": "2024-08-12T01:38:00.000Z",
+        "end": "23:39"
+      },
+      "location": "Pernambuco, Recife, Brasil",
+      "invites": [
+        "wesley",
+        "wendeson.gomes@live.com",
+        "wendeson"
+      ],
+      "cancelled": true
+    },
+    {
+      "id": "66e3",
+      "title": "teste",
+      "date": {
+        "start": "2024-08-11T01:58:00.000Z",
+        "end": "23:58"
+      },
+      "location": "Pernambuco, Recife, Brasil",
+      "invites": [
+        "wendeson.gomes@live.com"
+      ],
+      "cancelled": true
+    },
+    {
+      "id": "140c",
+      "title": "Testnado Nomes",
+      "date": {
+        "start": "2024-08-11T02:00:00.000Z",
+        "end": "23:01"
+      },
+      "location": "Pernambuco, Recife, Brasil",
+      "invites": [
+        "wendeson.gomes",
+        "wendeson.gomes@live.com"
+      ],
+      "cancelled": true
+    },
+    {
+      "id": "b46e",
+      "title": "Testando 123",
+      "date": {
+        "start": "2024-08-11T01:09:00.000Z",
+        "end": "23:07"
+      },
+      "location": "Pernambuco, Recife, Brasil",
+      "invites": [
+        "wendeson.gomes@live.com",
+        "123"
+      ],
+      "cancelled": false
+    },
+    {
+      "id": "a063",
+      "title": "testandosad ada da",
+      "date": {
+        "start": "2024-08-11T02:13:00.000Z",
+        "end": "23:16"
+      },
+      "location": "Remoto",
+      "invites": [
+        "wendeson.gomes"
+      ],
+      "cancelled": false
+    },
+    {
+      "id": "d068",
+      "title": "AAA",
+      "date": {
+        "start": "2024-08-11T01:30",
+        "end": "04:30"
+      },
+      "location": "Remoto",
+      "invites": [
+        "wendeson.gomes",
+        "wendeson.gomes",
+        "wendeson.gomes",
+        "wendeson",
+        "sdad",
+        "wendeson.gomes"
+      ],
+      "cancelled": false
+    },
+    {
+      "id": "ed10",
+      "title": "Testando",
+      "date": {
+        "start": "2024-08-13T12:47:00.000Z",
+        "end": "11:47"
+      },
+      "location": "Pernambuco, Recife, Brasil",
+      "invites": [],
+      "cancelled": true
+    },
+    {
+      "id": "a18f",
+      "title": "AASDASD",
+      "date": {
+        "start": "2024-08-12T11:49",
+        "end": "12:49"
+      },
+      "location": "Pernambuco, Recife, Brasil",
+      "invites": [
+        "wendeson.gomes@live.com"
+      ],
+      "cancelled": true
+    },
+    {
+      "id": "c5a9",
+      "title": "teste",
+      "date": {
+        "start": "2024-08-12T14:56:00.000Z",
+        "end": "11:56"
+      },
+      "location": "Pernambuco, Recife, Brasil",
+      "invites": [
+        "wendeson.gomes@live.com"
+      ],
+      "cancelled": true
+    },
+    {
+      "id": "4375",
+      "title": "testeadasdasd",
+      "date": {
+        "start": "2024-08-20T14:56:00.000Z",
+        "end": "11:56"
+      },
+      "location": "Pernambuco, Recife, Brasil",
+      "invites": [
+        "wendeson.gomes@live.com"
+      ],
+      "cancelled": true
+    },
+    {
+      "id": "c678",
+      "title": "atsadas",
+      "date": {
+        "start": "2024-08-13T13:08:00.000Z",
+        "end": "13:08"
+      },
+      "location": "Pernambuco, Recife, Brasil",
+      "invites": [
+        "wendeson.gomes@live.com"
+      ],
+      "cancelled": true
+    },
+    {
+      "id": "be27",
+      "title": "asdasdasd",
+      "date": {
+        "start": "2024-08-15T16:19:00.000Z",
+        "end": "14:19"
+      },
+      "location": "Pernambuco, Recife, Brasil",
+      "invites": [
+        "wendeson.gomes@live.com"
+      ],
+      "cancelled": true
+    },
+    {
+      "id": "1a72",
+      "title": "asdasdas",
+      "date": {
+        "start": "2024-08-12T15:21:00.000Z",
+        "end": "12:21"
+      },
+      "location": "Pernambuco, Recife, Brasil",
+      "invites": [
+        "wendeson.gomes@live.com"
+      ],
+      "cancelled": true
+    }
+  ]
+}

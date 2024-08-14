@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../pages/home.vue";
 import Past from "../pages/past.vue";
+import Cancelled from "../pages/cancelled.vue";
 
 const routes = [
   {
@@ -10,6 +11,10 @@ const routes = [
   {
     path: "/past",
     component: Past,
+  },
+  {
+    path: "/cancelled",
+    component: Cancelled,
   },
 ];
 

@@ -4,11 +4,12 @@ export interface DateInfo {
 }
 
 export interface Agenda {
-  id: number;
+  id: string;
   date: DateInfo;
   location: string;
   title: string;
   invites: string[];
+  cancelled: boolean;
 }
 
 export type monthAgenda = Record<string, Agenda[]>;

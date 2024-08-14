@@ -8,12 +8,40 @@ import {
   PhXCircle,
 } from "@phosphor-icons/vue";
 import { onMounted, onUnmounted, ref } from "vue";
+import CancelModal from "./modal/cancelModal.vue";
+import LocationModal from "./modal/locationModal.vue";
+import InviteModal from "./modal/inviteModal.vue";
+import RescheduleModal from "./modal/rescheduleModal.vue";
+import { Agenda } from "../utils/types";
 
-defineProps({
-  isDropdownOpen: Boolean,
-});
+defineProps<{
+  isDropdownOpen: Boolean;
+  agenda: Agenda;
+  removeSchedule: (agendaId: string) => void;
+  updateSchedule?: () => void;
+}>();
 
 const dropdownRef = ref<HTMLElement | undefined>(undefined);
+const openCancelModal = ref(false);
+const openRescheduleModal = ref(false);
+const openLocationModal = ref(false);
+const openInviteModal = ref(false);
+
+const handleCancelModal = () => {
+  openCancelModal.value = !openCancelModal.value;
+};
+
+const handleRescheduleModal = () => {
+  openRescheduleModal.value = !openRescheduleModal.value;
+};
+
+const handleLocationModal = () => {
+  openLocationModal.value = !openLocationModal.value;
+};
+
+const handleInviteModal = () => {
+  openInviteModal.value = !openInviteModal.value;
+};
 
 const emit = defineEmits<{
   (event: "toggleDropdown"): void;
@@ -41,7 +69,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div
+  <button
     ref="dropdownRef"
     :class="{ dropdown: true, open: isDropdownOpen }"
     @click="toggleDropdown"
@@ -63,25 +91,51 @@ onUnmounted(() => {
     </div>
 
     <div v-if="isDropdownOpen" class="dropdown-items">
-      <div class="dropdown-item">
+      <button @click="handleRescheduleModal" class="dropdown-item">
         <PhClock :size="16" weight="fill" />
-        <p class="item">Remarcar</p>
-      </div>
-      <div class="dropdown-item">
+        <p>Remarcar</p>
+      </button>
+      <button @click="handleLocationModal" class="dropdown-item">
         <PhMapPin :size="16" weight="fill" />
-        <p class="item">Editar Local</p>
-      </div>
-      <div class="dropdown-item">
+        <p>Editar Local</p>
+      </button>
+      <button @click="handleInviteModal" class="dropdown-item">
         <PhUserPlus :size="16" weight="fill" />
-        <p class="item">Invitar Pessoa</p>
-      </div>
+        <p>Convidar/Remover</p>
+      </button>
       <span class="divide" />
-      <div class="dropdown-item">
+      <button @click="handleCancelModal" class="dropdown-item">
         <PhXCircle :size="16" weight="fill" />
-        <p class="item">Cancelar Evento</p>
-      </div>
+        <p>Cancelar Evento</p>
+      </button>
     </div>
-  </div>
+  </button>
+
+  <CancelModal
+    :removeSchedule="removeSchedule"
+    :agendaId="agenda.id"
+    :openModal="openCancelModal"
+    :handleModal="handleCancelModal"
+  />
+  <RescheduleModal
+    :agendaId="agenda.id"
+    :updateSchedule="updateSchedule"
+    :openModal="openRescheduleModal"
+    :handleModal="handleRescheduleModal"
+  />
+  <LocationModal
+    :agendaId="agenda.id"
+    :updateSchedule="updateSchedule"
+    :openModal="openLocationModal"
+    :handleModal="handleLocationModal"
+  />
+  <InviteModal
+    :agendaId="agenda.id"
+    :updateSchedule="updateSchedule"
+    :agendaInvites="agenda.invites"
+    :openModal="openInviteModal"
+    :handleModal="handleInviteModal"
+  />
 </template>
 
 <style lang="scss" scoped>
@@ -89,9 +143,10 @@ onUnmounted(() => {
   background-color: rgb(243, 243, 243);
   padding: 1.5rem 2rem;
   border-radius: 1rem;
-  cursor: pointer;
   user-select: none;
   position: relative;
+  border: none;
+  cursor: pointer;
 
   &:hover {
     background-color: #172838;
@@ -138,7 +193,10 @@ onUnmounted(() => {
       border-radius: 0.5rem;
       padding: 0.5rem 1rem;
       color: rgb(160, 160, 160);
-      font-size: 1.6rem;
+      font-size: 1.4rem;
+      border: none;
+      background: none;
+      cursor: pointer;
 
       &:hover {
         color: black;

@@ -1,18 +1,23 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { RouterLink, useRoute } from "vue-router";
-import Modal from "./modal.vue";
+import SheduleModal from "./modal/sheduleModal.vue";
+import { Agenda } from "../utils/types";
+
+defineProps<{
+  updateSchedule?: () => void;
+}>();
 
 const route = useRoute();
 const path = computed(() => route.path);
-const openModal = ref(false);
+const openSheduleModal = ref(false);
 
 const isHomePath = computed(() => path.value === "/");
-const isCancelPath = computed(() => path.value === "/cancel");
+const isCancelPath = computed(() => path.value === "/cancelled");
 const isPastPath = computed(() => path.value === "/past");
 
-const handleModal = () => {
-  openModal.value = !openModal.value;
+const handleScheduleModal = () => {
+  openSheduleModal.value = !openSheduleModal.value;
 };
 </script>
 
@@ -30,16 +35,20 @@ const handleModal = () => {
         >
       </li>
       <li :class="{ actually: isCancelPath }">
-        <RouterLink :class="{ active: isCancelPath }" to="/cancel"
+        <RouterLink :class="{ active: isCancelPath }" to="/cancelled"
           >Cancelados</RouterLink
         >
       </li>
     </ul>
 
-    <button :onclick="handleModal">Agendar</button>
+    <button :onclick="handleScheduleModal">Agendar</button>
   </nav>
 
-  <Modal :openModal="openModal" :handleModal="handleModal" />
+  <SheduleModal
+    :updateSchedule="updateSchedule"
+    :openModal="openSheduleModal"
+    :handleModal="handleScheduleModal"
+  />
 </template>
 
 <style lang="scss" scoped>

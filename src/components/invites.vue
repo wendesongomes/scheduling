@@ -1,17 +1,35 @@
 <script setup lang="ts">
+import { computed, ref, watch } from "vue";
+
 const props = defineProps<{
   invites: string[];
 }>();
-const inviteName = props.invites.map((invite) => invite.slice(0, 2));
 
-const displayedInvites = inviteName.slice(0, 5);
-const additionalInvitesCount = inviteName.length - 5;
+const newInvitesRef = ref<string[]>([...props.invites]);
+const displayedInvites = ref<string[]>([]);
+
+watch(
+  () => props.invites,
+  (newInvites) => {
+    newInvitesRef.value = newInvites;
+    updateDisplayedInvites();
+  }
+);
+
+const updateDisplayedInvites = () => {
+  const inviteName = newInvitesRef.value.map((invite) => invite.slice(0, 2));
+  displayedInvites.value = inviteName.slice(0, 5);
+};
+
+updateDisplayedInvites();
+const additionalInvitesCount = computed(() => newInvitesRef.value.length - 5);
+const hasAdditionalInvites = computed(() => newInvitesRef.value.length <= 5);
 </script>
 
 <template>
   <div class="container-invites">
     <span
-      v-if="inviteName.length <= 5"
+      v-if="hasAdditionalInvites"
       v-for="(invite, index) in displayedInvites"
       :key="index"
       :style="{ right: `${2 + index * 0.8}rem` }"

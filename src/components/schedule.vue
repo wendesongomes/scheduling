@@ -1,16 +1,19 @@
 <script setup lang="ts">
-import DropdownMenu from "./dropdown-menu.vue";
-import { ref } from "vue";
+import DropdownMenu from "./dropdownMenu.vue";
+import { ref, watch } from "vue";
 import { PhClock, PhMapPin } from "@phosphor-icons/vue";
 import Invites from "./invites.vue";
 import { format, isAfter } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { Agenda } from "../utils/types";
 
-defineProps<{
+const props = defineProps<{
   agenda: Agenda;
+  removeSchedule?: (agendaId: string) => void;
+  updateSchedule?: () => void;
 }>();
 
+const invites = ref(props.agenda.invites);
 const isDropdownOpen = ref(false);
 
 const handleDropdown = () => {
@@ -33,6 +36,13 @@ const isPastRemoveButton = (date: string) => {
   const today = new Date();
   return isAfter(date, today) || isToday(date);
 };
+
+watch(
+  () => props.agenda.invites,
+  (newValue) => {
+    invites.value = newValue;
+  }
+);
 </script>
 
 <template>
@@ -40,7 +50,9 @@ const isPastRemoveButton = (date: string) => {
     <div :class="{ 'container-event': true, open: isDropdownOpen }">
       <div class="event">
         <div class="event-date-time">
-          <div :class="{ 'event-date': true, today: isToday(agenda.date.end) }">
+          <div
+            :class="{ 'event-date': true, today: isToday(agenda.date.start) }"
+          >
             <h2 class="event-day">
               {{
                 format(agenda.date.start, "EEEE", { locale: ptBR }).slice(0, 3)
@@ -58,7 +70,7 @@ const isPastRemoveButton = (date: string) => {
               <PhClock :size="16" weight="fill" />
               <p>
                 {{ format(agenda.date.start, "HH:mm") }} :
-                {{ format(agenda.date.end, "HH:mm") }}
+                {{ agenda.date.end }}
               </p>
             </div>
 
@@ -70,12 +82,15 @@ const isPastRemoveButton = (date: string) => {
 
           <div class="event-title-participants">
             <p>{{ agenda.title }}</p>
-            <Invites :invites="agenda.invites" />
+            <Invites :invites="invites" />
           </div>
         </div>
 
         <DropdownMenu
-          v-if="isPastRemoveButton(agenda.date.start)"
+          v-if="isPastRemoveButton(agenda.date.start) && removeSchedule"
+          :updateSchedule="updateSchedule"
+          :agenda="agenda"
+          :removeSchedule="removeSchedule"
           :isDropdownOpen="isDropdownOpen"
           @toggleDropdown="handleDropdown"
           @closeDropdown="closeDropdown"

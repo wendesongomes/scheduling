@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import Menu from "./menu.vue";
+
+defineProps<{
+  updateSchedule?: () => void;
+}>();
 </script>
 
 <template>
@@ -9,7 +13,7 @@ import Menu from "./menu.vue";
       <p>Veja todas os seus eventos agendados.</p>
     </div>
 
-    <Menu />
+    <Menu :updateSchedule="updateSchedule" />
   </header>
 </template>
 
@@ -19,7 +23,7 @@ header {
   flex-direction: column;
   gap: 4rem;
   font-size: 1.6rem;
-  padding: 3rem;
+  padding: 3rem 1rem;
   max-width: 900px;
   width: 100%;
 }

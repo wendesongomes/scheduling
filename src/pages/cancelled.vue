@@ -10,16 +10,7 @@ import Header from "../components/header.vue";
 const schedule = ref<Agenda[]>([]);
 
 const filterMonth = computed(() => {
-  return schedule.value.filter((agenda) => {
-    const agendaDate = parse(
-      agenda.date.end,
-      "HH:mm",
-      new Date(agenda.date.start)
-    );
-    const currentDate = new Date();
-
-    return agendaDate < currentDate;
-  });
+  return schedule.value.filter((agenda) => agenda.cancelled === true);
 });
 
 const sortMonth = computed(() => {
@@ -48,7 +39,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <Header :scheduleFetch="schedule" />
+  <Header />
   <main>
     <div class="container" v-for="(agendas, month) in eventsByMonth">
       <p v-if="isThisMonth(month)">
@@ -61,7 +52,7 @@ onMounted(async () => {
       </div>
     </div>
     <p class="emptyEvents" v-if="!isLoading && filterMonth.length === 0">
-      Nenhum evento passado
+      Nenhum evento cancelado
     </p>
   </main>
 </template>

@@ -13,6 +13,6 @@ html {
   font-size: 62.5%;
 }
 
-.modal-open {
+body:has(dialog[open]) {
   overflow: hidden;
 }

@@ -1,13 +1,5 @@
-import { format, getMonth, parse, parseISO } from "date-fns";
+import { format, getMonth, parse } from "date-fns";
 import { Agenda, monthAgenda } from "./types";
-import { agendas } from "./agendas";
-
-export const filterMonth = agendas.filter((agenda) => {
-  const agendaDate = parseISO(agenda.date.start);
-  const currentDate = new Date();
-
-  return format(agendaDate, "MM/yyyy") > format(currentDate, "MM/yyyy");
-});
 
 export function separateEventsByMonth(agendas: Agenda[]): monthAgenda {
   return agendas.reduce((acc: monthAgenda, agenda: Agenda) => {
