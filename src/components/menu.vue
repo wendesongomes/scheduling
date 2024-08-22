@@ -2,7 +2,6 @@
 import { computed, ref } from "vue";
 import { RouterLink, useRoute } from "vue-router";
 import SheduleModal from "./modal/sheduleModal.vue";
-import { Agenda } from "../utils/types";
 
 defineProps<{
   updateSchedule?: () => void;
